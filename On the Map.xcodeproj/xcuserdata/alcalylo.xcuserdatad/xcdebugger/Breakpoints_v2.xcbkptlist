@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "On the Map/ViewController.swift"
+            timestampString = "542046775.761663"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "On_the_Map.ViewController.__deallocating_deinit"
+                  moduleName = "On the Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alcalylo/Desktop/myApps/On%20the%20Map/On%20the%20Map/ViewController.swift"
+                  timestampString = "541622226.768477"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "On_the_Map.ViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; On_the_Map.ViewController"
+                  moduleName = "On the Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alcalylo/Desktop/myApps/On%20the%20Map/On%20the%20Map/ViewController.swift"
+                  timestampString = "541622226.771094"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "On_the_Map.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; On_the_Map.ViewController"
+                  moduleName = "On the Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alcalylo/Desktop/myApps/On%20the%20Map/On%20the%20Map/ViewController.swift"
+                  timestampString = "541622226.773492"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "283">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "On_the_Map.ViewController.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;On_the_Map.ViewController&gt;"
+                  moduleName = "On the Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alcalylo/Desktop/myApps/On%20the%20Map/On%20the%20Map/ViewController.swift"
+                  timestampString = "541622226.775933"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "On_the_Map.ViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;On_the_Map.ViewController&gt;"
+                  moduleName = "On the Map"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alcalylo/Desktop/myApps/On%20the%20Map/On%20the%20Map/ViewController.swift"
+                  timestampString = "541622226.7792161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
