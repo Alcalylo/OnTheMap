@@ -28,6 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordTextField.text = ""

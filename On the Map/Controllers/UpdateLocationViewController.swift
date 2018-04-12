@@ -32,7 +32,7 @@ class UpdateLocationViewController: UIViewController, MKMapViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = true
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,6 +42,7 @@ class UpdateLocationViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = userLocation
         displayActivityIndicator()
@@ -101,9 +102,10 @@ class UpdateLocationViewController: UIViewController, MKMapViewDelegate {
                         userInformation.objectID = (result?["objectId"] as? String)!
                         print(userInformation.objectID as Any)
                         debugPrint("Posted successfully")
-                        
+                        //self.dismiss(animated: true, completion: nil)
                         let controller = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
                         self.present(controller!, animated: true, completion: nil)
+                   //self.navigationController?.popToRootViewController(animated: true)
                     }
                 }
                 
@@ -127,9 +129,10 @@ class UpdateLocationViewController: UIViewController, MKMapViewDelegate {
                             
                             print("Posted(PUT) successfully")
                             let controller =
-                                self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
+                              self.storyboard?.instantiateViewController(withIdentifier: "TabBarController")
                             self.present(controller!, animated: true, completion: nil)
-                            
+                           // self.dismiss(animated: true, completion: nil)
+                       //self.navigationController?.popToRootViewController(animated: true)
                         }
                     }
                     

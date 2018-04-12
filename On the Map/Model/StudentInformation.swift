@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct studentInformation
+struct StudentData
 {
     var firstName: String? = "First Name"
     var lastName: String? = "Last Name"

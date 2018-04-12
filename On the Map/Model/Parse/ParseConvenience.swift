@@ -42,14 +42,14 @@ extension ParseClient
             }
             else
             {
-                var userLocation : studentInformation
+                var userLocation : StudentData
                 var results = result!["results"]  as? [[String : AnyObject]]
                 
                 print(results?.count as Any)
                 
                 if(results?.count != 0 )
                 {
-                    userLocation = studentInformation(dictionary: (results![0]))
+                    userLocation = StudentData(dictionary: (results![0]))
                     userInformation  = userLocation
                     
                     print(userInformation.firstName as Any)

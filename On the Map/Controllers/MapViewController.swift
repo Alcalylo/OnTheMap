@@ -30,7 +30,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        callstudentInformation()
+        callStudentData()
         ParseClient.sharedInstance().getStudentInformation({ (success, result, error) in
             
             if success == false {
@@ -47,7 +47,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     
-    func callstudentInformation() {
+    func callStudentData() {
         ParseClient.sharedInstance().getStudentsInformation({(success, data, error) in
             
             if(error != nil)
@@ -61,7 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 for student in studentsArray!
                 {
-                    SharedData.sharedInstance.StudentLocations.append(studentInformation(dictionary: student))
+                    SharedData.sharedInstance.StudentLocations.append(StudentData(dictionary: student))
                 }
                 
                 if studentsArray?.count != 0
@@ -72,7 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         })
     }
     
-    func markPins(_ studentinfo : [studentInformation], _ refresh : Int)
+    func markPins(_ studentinfo : [StudentData], _ refresh : Int)
     {
         performUIUpdatesOnMain {
             if(refresh == 1)
@@ -154,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
             else
             {
-                    self.displayAlert("User \(String(describing: userInformation.firstName)))) \(String(describing:  userInformation.lastName))) has already posted a location. Would you like to Overwrite their location?")
+                    self.displayAlert("User has already posted a location. Would you like to Overwrite their location?")
                 
             }
         }
@@ -162,7 +162,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func refresh(_ sender : Any)
     {
-        ParseClient.sharedInstance().getStudentsInformation({(success, data, error) in
+        callStudentData()
+        
+       /* ParseClient.sharedInstance().getStudentsInformation({(success, data, error) in
             
             if error != nil
             {
@@ -175,7 +177,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 
                 for student in studentsArray!
                 {
-                    SharedData.sharedInstance.StudentLocations.append(studentInformation(dictionary : student))
+                    SharedData.sharedInstance.StudentLocations.append(StudentData(dictionary : student))
                 }
                 
                 if studentsArray?.count != 0
@@ -184,6 +186,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }
             }
         })
+*/
     }
     
     

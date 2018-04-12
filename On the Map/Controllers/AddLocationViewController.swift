@@ -16,23 +16,17 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         location.delegate = self
         link.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(AddLocationViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(AddLocationViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
-         NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -40,7 +34,7 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     {
         let url = URL(string : link.text!)
         
-        if url?.scheme != "https"
+        if url?.scheme != "https" 
         {
             displayAlert("", "Please enter a valid link", "OK")
         }
@@ -72,35 +66,6 @@ class AddLocationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cancel (_ sender : Any)
     {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func keyboardWillShow(notification : NSNotification)
-    {
-        let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        let keyboardHeight = keyboardSize.cgRectValue.height
-        let keyboardYPosition = self.view.frame.height - keyboardHeight
-        
-        if (location.isFirstResponder && keyboardYPosition <  (location.frame.origin.y + location.frame.height)) {
-            self.view.frame.origin.y = keyboardYPosition - (location.frame.origin.y + location.frame.height)
-        }
-        else if (link.isFirstResponder && keyboardYPosition <  (link.frame.origin.y + link.frame.height)) {
-            self.view.frame.origin.y = keyboardYPosition - (link.frame.origin.y + link.frame.height)
-        }
-        
-        
-    }
-    
-    
-    @objc func keyboardWillHide(notification : NSNotification)
-    {
-        self.view.frame.origin.y = 0
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
     

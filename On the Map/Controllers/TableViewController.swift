@@ -11,7 +11,7 @@ import Foundation
 class TableViewController: UITableViewController {
     
     // MARK: Properties
-    var studentInfo: [studentInformation] = []
+    var studentInfo: [StudentData] = []
     
     
     // MARK: Life cycle
@@ -25,8 +25,8 @@ class TableViewController: UITableViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        displayTable()
         self.tableView.reloadData()
+        self.displayTable()
     }
     
     func displayTable() {
@@ -44,7 +44,7 @@ class TableViewController: UITableViewController {
                     
                     for student in studentsArray!
                     {
-                        SharedData.sharedInstance.StudentLocations.append(studentInformation(dictionary : student))
+                        SharedData.sharedInstance.StudentLocations.append(StudentData(dictionary : student))
                     }
                     
                     if SharedData.sharedInstance.StudentLocations.count != 0
@@ -73,19 +73,23 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
+        self.tableView.rowHeight = 60
         
         let info = SharedData.sharedInstance.StudentLocations[(indexPath as NSIndexPath).row]
         
-        if let _ = info.firstName, let _ = info.lastName {
-            cell.textLabel?.text = info.firstName! + info.lastName!
-            cell.imageView?.image = #imageLiteral(resourceName: "icon_pin")
+        if let _ = info.firstName, let _ = info.lastName, let _ = info.mediaURL {
+            
+            cell.textLabel?.text = info.firstName! + " " + info.lastName!
+            cell.imageView?.image = #imageLiteral(resourceName: "icon_pin-1")
             cell.detailTextLabel?.text = info.mediaURL
+            
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let info = SharedData.sharedInstance.StudentLocations[(indexPath as NSIndexPath).row]
+        
         let url = URL( string : info.mediaURL!)
         
         if url?.scheme != "https"
@@ -104,8 +108,8 @@ class TableViewController: UITableViewController {
     func displayAlert(_message : String) {
         let alert = UIAlertController(title: title, message: _message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: { (action) in
-            let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
-            self.present(controller, animated: true, completion: nil)
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+        self.present(controller, animated: true, completion: nil)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action) in
@@ -124,7 +128,9 @@ class TableViewController: UITableViewController {
         
         if userInformation.objectID == nil {
             let controller = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
+            self.tableView.reloadData()
             self.present(controller, animated: true, completion: nil)
+            
         }
         else
         {

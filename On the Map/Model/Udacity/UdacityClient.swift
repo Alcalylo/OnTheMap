@@ -11,7 +11,6 @@ import UIKit
 
 class UdacityClient{
     
-    
     func taskforPOSTmethod(_ username : String, _ password : String, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: String?) -> Void) -> URLSessionDataTask {
         
         var request = URLRequest(url: URL(string: "https://www.udacity.com/api/session")!)
